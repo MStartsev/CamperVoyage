@@ -1,23 +1,41 @@
-import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import css from './Navigation.module.css';
 
 const Navigation = () => {
   return (
     <>
-      <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/catalog">Catalog</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </nav>
-      </header>
-      <main>
-        <div>
-          <Suspense fallback={<p>Loading...</p>}>
-            <Outlet />
-          </Suspense>
-        </div>
-      </main>
+      <nav className={css.navigation}>
+        <NavLink
+          to="/"
+          className={
+            (css.homelink,
+            ({ isActive }) =>
+              `${isActive && css.activeLink} ${css.link} ${css.title}`)
+          }
+        >
+          <span className={css.title__accent}>Camper</span>Voyage
+        </NavLink>
+
+        <ul className={css.list}>
+          <NavLink
+            to="/catalog"
+            className={({ isActive }) =>
+              `${isActive && css.activeLink} ${css.link}`
+            }
+          >
+            Catalog
+          </NavLink>
+
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) =>
+              `${isActive && css.activeLink} ${css.link}`
+            }
+          >
+            Favorites
+          </NavLink>
+        </ul>
+      </nav>
     </>
   );
 };
