@@ -17,15 +17,19 @@
 .link {
   padding-bottom: 24px;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.2;
 }
 
-.activeLink {
+.link:hover {
   color: var(--color-primary);
+}
+
+.activeLink {
   border-bottom: 5px solid var(--color-accent);
+  pointer-events: none;
 }
 
 .title {
