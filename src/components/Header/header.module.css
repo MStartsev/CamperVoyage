@@ -1,0 +1,4 @@
+.header {
+  margin-inline: auto;
+  max-width: var(--desktop);
+}
