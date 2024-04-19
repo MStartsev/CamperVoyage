@@ -66,6 +66,21 @@
   text-overflow: ellipsis;
 }
 
+.favorite,
+.favorite__added {
+  background-color: var(--color-white);
+}
+
+.favorite {
+  --fill: var(--color-white);
+  --stroke: var(--color-primary);
+}
+
+.favorite__added {
+  --fill: var(--color-accent);
+  --stroke: var(--color-accent);
+}
+
 .rating,
 .location {
   font-size: 16px;

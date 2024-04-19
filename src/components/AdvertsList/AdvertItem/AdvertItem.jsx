@@ -4,7 +4,7 @@ import css from './AdvertItem.module.css';
 
 const AdvertItem = ({ card }) => {
   const {
-    _id,
+    id,
     name,
     price,
     location,
@@ -32,7 +32,11 @@ const AdvertItem = ({ card }) => {
             <h2 className={css.title}>{name}</h2>
             <div className={css.price_wrapper}>
               <p className={css.price}>€{price.toFixed(2)}</p>
-              <button className={css.favorite}>F</button>
+              <button className={(true && css.favorite) || css.favorite__added}>
+                <svg className={css.icon} width={24} height={24}>
+                  <use xlinkHref={`${sprite}#heart`} />
+                </svg>
+              </button>
             </div>
           </div>
           <div className={css.info}>
