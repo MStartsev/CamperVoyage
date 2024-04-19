@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 92px;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+
+  border-radius: 100px;
+  background: #f2f4f7;
+}

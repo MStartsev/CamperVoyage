@@ -1,21 +1,38 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAdverts, selectIsLoading, selectError } from 'redux/selectors';
+import { selectIsLoading, selectError } from 'redux/selectors';
+import AdvertItem from './AdvertItem/AdvertItem';
+import css from './AdvertList.module.css';
 
-import { fetchAdverts } from 'redux/operations';
-
-const AdvertList = () => {
-  const adverts = useSelector(selectAdverts);
+const AdvertList = ({ adverts }) => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const dispatch = useDispatch();
+  // const [adverts] = data;
 
-  useEffect(() => {
-    dispatch(fetchAdverts());
-    console.log(adverts);
-  }, [adverts, dispatch]);
+  if (isLoading) {
+    return (
+      <>
+        <p>Loading...</p>
+      </>
+    );
+  }
 
-  return <>asdfgh</>;
+  if (error) {
+    return (
+      <>
+        <p>Error!</p>
+      </>
+    );
+  }
+
+  return (
+    <ul className={css.list}>
+      {adverts && adverts?.length > 0 ? (
+        adverts.map(card => <AdvertItem key={card.id} card={card} />)
+      ) : (
+        <p>No advertisements found</p>
+      )}
+    </ul>
+  );
 };
 
 export default AdvertList;

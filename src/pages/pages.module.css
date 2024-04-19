@@ -31,6 +31,10 @@
   color: var(--color-white);
 }
 
+.catalog {
+  padding: 100px 64px;
+}
+
 .homepage_text {
   display: block;
   max-width: 460px;
