@@ -61,7 +61,7 @@ const AdvertItem = ({ card }) => {
                 <use xlinkHref={`${sprite}#star`} />
               </svg>
               <span className={css.rating_text}>
-                {rating}({reviews.length} Reviews)
+                {rating} ({reviews.length} Reviews)
               </span>
             </p>
 

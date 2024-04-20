@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectIsLoading, selectError } from 'redux/selectors';
 import AdvertItem from './AdvertItem/AdvertItem';
 import css from './AdvertList.module.css';
@@ -6,7 +6,6 @@ import css from './AdvertList.module.css';
 const AdvertList = ({ adverts }) => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  // const [adverts] = data;
 
   if (isLoading) {
     return (
