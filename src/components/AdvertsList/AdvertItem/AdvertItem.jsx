@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from 'redux/selectors';
+import { addFavorite, removeFavorite } from 'redux/favoriteSlice';
 import DetailsList from './DetailsList';
 import sprite from 'icons/sprite.svg';
 import css from './AdvertItem.module.css';
@@ -15,8 +18,18 @@ const AdvertItem = ({ card }) => {
     gallery,
   } = card;
 
+  const dispatch = useDispatch();
+
+  const { favorites } = useSelector(selectFavorites);
+  const isFavorite = !favorites.find(favorite => favorite.id === id);
+
+  const handleFavorite = () =>
+    isFavorite
+      ? dispatch(addFavorite(card))
+      : dispatch(removeFavorite(card.id));
+
   return (
-    <li className={css.item}>
+    <li className={css.item} id={id}>
       <img
         className={css.img}
         src={gallery && gallery?.length && gallery[0]}
@@ -32,7 +45,10 @@ const AdvertItem = ({ card }) => {
             <h2 className={css.title}>{name}</h2>
             <div className={css.price_wrapper}>
               <p className={css.price}>€{price.toFixed(2)}</p>
-              <button className={(true && css.favorite) || css.favorite__added}>
+              <button
+                className={(isFavorite && css.favorite) || css.favorite__added}
+                onClick={handleFavorite}
+              >
                 <svg className={css.icon} width={24} height={24}>
                   <use xlinkHref={`${sprite}#heart`} />
                 </svg>
