@@ -3,7 +3,7 @@ import css from './pages.module.css';
 
 const Home = () => {
   return (
-    <div className={css.wrapper}>
+    <div className={css.wrapper_home}>
       <section className={css.homepage}>
         <div className={css.container}>
           <div className={css.text_wrapper}>

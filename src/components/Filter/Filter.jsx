@@ -1,10 +1,11 @@
 import { useMemo, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { selectAdverts } from 'redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectAdverts } from 'redux/selectors';
 import css from './Filter.module.css';
 import { FilterData } from './FilterData';
 import CityAutoComplete from './CityAutoComplete/CityAutoComplete';
 import DetailFilter from './DetailFilter/DetailFilter';
+import FormFilter from './FormFilter/FormFilter';
 
 const SearchButton = ({ onClick, disabled }) => {
   return (
@@ -14,29 +15,39 @@ const SearchButton = ({ onClick, disabled }) => {
   );
 };
 
-const Filter = ({ setFilteredAdverts }) => {
-  const adverts = useSelector(selectAdverts);
+const Filter = ({ adverts, setFilteredAdverts }) => {
   const filterKeys = useMemo(() => FilterData(adverts), [adverts]);
 
   const [selectedCity, setSelectedCity] = useState('');
-  const [searchDisabled, setSearchDisabled] = useState(true);
+  const [filteredDetails, setFilteredDetails] = useState([]);
+  const [filteredForm, setFilteredForm] = useState('');
 
   const handleSearch = () => {
-    console.log(selectedCity);
-    if (selectedCity.length > 0) {
-      const filteredData = adverts.filter(vehicle =>
-        vehicle.location.includes(selectedCity)
-      );
-      setFilteredAdverts(filteredData);
-    } else {
-      setFilteredAdverts(null); // Очищуємо фільтровані дані
-    }
-  };
+    let filteredData = adverts;
 
-  useEffect(() => {
-    setSearchDisabled(selectedCity.length === 0);
-    if (selectedCity.length === 0) setFilteredAdverts(null);
-  }, [selectedCity, setFilteredAdverts]);
+    if (selectedCity.length > 0) {
+      filteredData = filteredData.filter(advert =>
+        advert.location.includes(selectedCity)
+      );
+    }
+
+    console.log(filteredDetails.length, filteredData);
+    if (filteredDetails.length > 0) {
+      filteredData = filteredData.filter(item => {
+        return filteredDetails.every(filter => {
+          return item.details[filter];
+        });
+      });
+    }
+
+    if (filteredForm.length > 0) {
+      filteredData = filteredData.filter(advert =>
+        advert.form.includes(filteredForm)
+      );
+    }
+
+    setFilteredAdverts(filteredData);
+  };
 
   return (
     <div>
@@ -44,8 +55,13 @@ const Filter = ({ setFilteredAdverts }) => {
         cities={filterKeys.location}
         onCitySelect={setSelectedCity}
       />
-      <DetailFilter detailKeys={filterKeys.details} />
-      <SearchButton onClick={handleSearch} disabled={searchDisabled} />
+      <DetailFilter
+        detailKeys={filterKeys.details}
+        onFilterSelect={setFilteredDetails}
+      />
+      <FormFilter formKeys={filterKeys.form} onFilterSelect={setFilteredForm} />
+
+      <SearchButton onClick={handleSearch} />
     </div>
   );
 };

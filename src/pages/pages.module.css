@@ -1,4 +1,11 @@
 .wrapper {
+  display: flex;
+  gap: 64px;
+  margin-inline: auto;
+  max-width: var(--desktop);
+}
+
+.wrapper_home {
   margin-inline: auto;
   max-width: var(--desktop);
 }
@@ -31,8 +38,9 @@
   color: var(--color-white);
 }
 
-.catalog {
-  padding: 100px 64px;
+.catalog,
+.filter {
+  padding-block: 100px;
 }
 
 .homepage_text {

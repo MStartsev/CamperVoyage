@@ -6,17 +6,17 @@ export function FilterData(data) {
   let uniqueForms = new Set();
 
   // Проходимося по кожному елементу у JSON-масиві.
-  for (let vehicle of data) {
+  for (let advert of data) {
     // Додаємо унікальні ключі з "details".
-    for (let key in vehicle.details) {
+    for (let key in advert.details) {
       uniqueDetailKeys.add(key);
     }
     // Розділяємо значення "location" та видаляємо "Ukraine, ".
-    const locationParts = vehicle.location.split(', ');
+    const locationParts = advert.location.split(', ');
     const city = locationParts[1];
     uniqueLocations.add(city);
     // Додаємо форму унікальних значень "form".
-    uniqueForms.add(vehicle.form);
+    uniqueForms.add(advert.form);
   }
 
   const sortArr = set => Array.from(set).sort((a, b) => a - b);

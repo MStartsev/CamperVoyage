@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import sprite from 'icons/sprite.svg';
+import css from './CityAutoComplete.module.css';
 
 const CityAutoComplete = ({ cities, onCitySelect }) => {
   const [inputValue, setInputValue] = useState('');
@@ -59,27 +61,38 @@ const CityAutoComplete = ({ cities, onCitySelect }) => {
   };
 
   return (
-    <div ref={inputRef}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        onBlur={handleBlur}
-        placeholder="Введіть назву міста"
-      />
-      {suggestions.length > 0 && (
-        <ul>
-          {suggestions.map((city, index) => (
-            <li key={index} onClick={() => handleSuggestionClick(city)}>
-              {city}
-            </li>
-          ))}
-        </ul>
-      )}
-      {cityNotFound && !inputCleared && (
-        <p style={{ color: 'red' }}>Місто відсутнє</p>
-      )}
+    <div className={css.location} ref={inputRef}>
+      <h3 className={css.title}>Location</h3>
+      <div className={css.wrapper}>
+        <svg className={css.icon} width={18} height={20}>
+          <use xlinkHref={`${sprite}#geo`} />
+        </svg>
+        <input
+          className={css.input_location}
+          type="text"
+          value={inputValue}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
+          placeholder="Enter the name of the Ukrainian city"
+        />
+        {suggestions.length > 0 && (
+          <ul className={css.list}>
+            {suggestions.map((city, index) => (
+              <li
+                key={index}
+                className={css.item}
+                onClick={() => handleSuggestionClick(city)}
+              >
+                {city}
+              </li>
+            ))}
+          </ul>
+        )}
+        {cityNotFound && !inputCleared && (
+          <p style={{ color: 'red' }}>Місто відсутнє</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import capitalizeWord from 'helpers/capitalizeWord';
+import sprite from 'icons/sprite.svg';
+import css from './DetailFilter.module.css';
 
 const DetailFilter = ({ detailKeys, onFilterSelect }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -10,33 +13,38 @@ const DetailFilter = ({ detailKeys, onFilterSelect }) => {
     setSelectedFilters(updatedFilters);
   };
 
-  const handleSearch = () => {
+  useEffect(() => {
+    console.log(selectedFilters);
     onFilterSelect(selectedFilters);
-  };
+  }, [onFilterSelect, selectedFilters]);
 
   return (
-    <div>
-      <h3>Додаткові фільтри</h3>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {detailKeys.map(key => (
-          <button
-            key={key}
-            style={{
-              margin: '5px',
-              padding: '8px 12px',
-              borderRadius: '5px',
-              background: selectedFilters.includes(key) ? 'blue' : 'lightgrey',
-              color: selectedFilters.includes(key) ? 'white' : 'black',
-              cursor: 'pointer',
-              border: 'none',
-            }}
-            onClick={() => toggleFilter(key)}
-          >
-            {key}
-          </button>
-        ))}
+    <div className={css.details_filter}>
+      <div>
+        <h3 className={css.subtitle}>Filters</h3>
+        <h2 className={css.title}>Vehicle equipment</h2>
       </div>
-      <button onClick={handleSearch}>Search</button>
+
+      <ul className={css.details_list}>
+        {detailKeys.map(key => (
+          <li key={key}>
+            <button
+              className={`${css.details_item} ${
+                selectedFilters.includes(key) ? css.details_item__selected : ''
+              }`}
+              onClick={() => {
+                toggleFilter(key);
+              }}
+            >
+              <svg width={32} height={32}>
+                <use xlinkHref={`${sprite}#${key.toLowerCase()}`} />
+              </svg>
+
+              <span className={css.form_text}>{capitalizeWord(key)}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
