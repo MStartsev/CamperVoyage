@@ -20,7 +20,7 @@ const FormFilter = ({ formKeys, onFilterSelect }) => {
       <ul className={css.form_list}>
         {formKeys.map(key => (
           <li key={key}>
-            <buttonas
+            <button
               className={`${css.form_item} ${
                 key === selectedFilter ? css.form_item__selected : ''
               }`}
@@ -33,7 +33,7 @@ const FormFilter = ({ formKeys, onFilterSelect }) => {
               </svg>
 
               <span className={css.form_text}>{capitalizeWord(key)}</span>
-            </buttonas>
+            </button>
           </li>
         ))}
       </ul>

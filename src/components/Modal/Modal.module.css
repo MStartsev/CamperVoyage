@@ -1,0 +1,29 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: var(--backdrop-bg);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  width: 902px;
+  max-height: 85vh;
+  padding: 40px 40px 40px 40px;
+  border-radius: 20px;
+  background-color: var(--color-white);
+}
+
+.close_button {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: var(--color-white);
+}

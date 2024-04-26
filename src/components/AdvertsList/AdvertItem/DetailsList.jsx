@@ -1,7 +1,7 @@
 import sprite from 'icons/sprite.svg';
 import css from './DetailsList.module.css';
 
-const DetailsList = ({ details }) => {
+const DetailsList = ({ details, list }) => {
   const listItems = Object.entries(details)
     .filter(([key, value]) => !!value)
     .map(([key, value]) => (
@@ -15,7 +15,7 @@ const DetailsList = ({ details }) => {
       </li>
     ));
 
-  return <ul className={css.list}>{listItems}</ul>;
+  return <ul className={list || css.list}>{listItems}</ul>;
 };
 
 export default DetailsList;

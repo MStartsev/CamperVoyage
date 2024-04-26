@@ -45,6 +45,7 @@
   border: 1px solid var(--color-light-bg);
   background-color: var(--color-light-bg);
   scrollbar-color: var(--color-scroll-bg) var(--color-light-bg);
+  scrollbar-width: thin;
 }
 
 .list::-webkit-scrollbar-track {

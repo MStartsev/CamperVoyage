@@ -1,7 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
-// import { selectAdverts } from 'redux/selectors';
-import css from './Filter.module.css';
+import { useMemo, useState } from 'react';
 import { FilterData } from './FilterData';
 import CityAutoComplete from './CityAutoComplete/CityAutoComplete';
 import DetailFilter from './DetailFilter/DetailFilter';

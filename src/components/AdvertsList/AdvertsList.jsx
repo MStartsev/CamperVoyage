@@ -26,7 +26,7 @@ const AdvertList = ({ adverts }) => {
   return (
     <ul className={css.list}>
       {adverts && adverts?.length > 0 ? (
-        adverts.map(card => <AdvertItem key={card.id} card={card} />)
+        adverts.map(advert => <AdvertItem key={advert.id} advert={advert} />)
       ) : (
         <p>No advertisements found</p>
       )}

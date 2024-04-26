@@ -1,11 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites } from 'redux/selectors';
-import { addFavorite, removeFavorite } from 'redux/favoriteSlice';
+import { useState } from 'react';
+import Modal from '../../Modal/Modal';
 import DetailsList from './DetailsList';
 import sprite from 'icons/sprite.svg';
 import css from './AdvertItem.module.css';
 
-const AdvertItem = ({ card }) => {
+const AdvertItem = ({ advert }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const {
     id,
     name,
@@ -16,17 +25,7 @@ const AdvertItem = ({ card }) => {
     rating,
     reviews,
     gallery,
-  } = card;
-
-  const dispatch = useDispatch();
-
-  const { favorites } = useSelector(selectFavorites);
-  const isFavorite = !favorites.find(favorite => favorite.id === id);
-
-  const handleFavorite = () =>
-    isFavorite
-      ? dispatch(addFavorite(card))
-      : dispatch(removeFavorite(card.id));
+  } = advert;
 
   return (
     <li className={css.item} id={id}>
@@ -45,14 +44,6 @@ const AdvertItem = ({ card }) => {
             <h2 className={css.title}>{name}</h2>
             <div className={css.price_wrapper}>
               <p className={css.price}>€{price.toFixed(2)}</p>
-              <button
-                className={(isFavorite && css.favorite) || css.favorite__added}
-                onClick={handleFavorite}
-              >
-                <svg className={css.icon} width={24} height={24}>
-                  <use xlinkHref={`${sprite}#heart`} />
-                </svg>
-              </button>
             </div>
           </div>
           <div className={css.info}>
@@ -73,7 +64,11 @@ const AdvertItem = ({ card }) => {
 
         <DetailsList details={details} />
 
-        <button className={css.button_more}>Show more</button>
+        <button className={css.button_more} onClick={handleShowModal}>
+          Show more
+        </button>
+
+        {showModal && <Modal onClose={handleCloseModal} advert={advert} />}
       </div>
     </li>
   );

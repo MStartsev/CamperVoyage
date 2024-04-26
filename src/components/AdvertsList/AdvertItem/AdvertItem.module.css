@@ -90,6 +90,7 @@
 .icon {
   margin-block: auto;
   padding: 0;
+  fill: var(--color-star);
 }
 
 .rating {
@@ -118,4 +119,10 @@
   color: var(--color-white);
   border-radius: 200px;
   background: #e44848;
+}
+
+.img_wrapper {
+  display: flex;
+  gap: 16px;
+  padding-block: 24px;
 }
