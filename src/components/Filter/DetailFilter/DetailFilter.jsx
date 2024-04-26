@@ -14,7 +14,6 @@ const DetailFilter = ({ detailKeys, onFilterSelect }) => {
   };
 
   useEffect(() => {
-    console.log(selectedFilters);
     onFilterSelect(selectedFilters);
   }, [onFilterSelect, selectedFilters]);
 

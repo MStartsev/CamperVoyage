@@ -16,10 +16,6 @@ const Catalog = () => {
     dispatch(fetchAdverts());
   }, [dispatch]);
 
-  if (true) {
-    console.log(filteredAdverts);
-  }
-
   return (
     <div className={css.wrapper}>
       <section className={css.filter}>

@@ -1,0 +1,111 @@
+.form,
+.title_wrapper,
+.wrapper,
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  max-width: 448px;
+  width: 100%;
+  padding: 24px;
+  gap: 24px;
+  border-radius: 10px;
+  border: 1px solid var(--color-secondary-20);
+}
+
+.form {
+  gap: 24px;
+  width: 100%;
+}
+
+.title_wrapper {
+  gap: 8px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text {
+  color: var(--color-secondary);
+}
+
+.container {
+  gap: 14px;
+}
+
+.input {
+  width: calc(100% - 36px);
+  height: 20px;
+  padding: 18px;
+  border: transparent;
+  border-radius: 10px;
+  background: var(--color-dark-bg);
+  outline: transparent;
+  color: var(--color-secondary);
+}
+
+.textarea {
+  composes: input;
+  height: 114px;
+  overflow: auto;
+  resize: none;
+}
+
+.calendar_svg {
+  position: absolute;
+  fill: var(--color-secondary);
+  right: 18px;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+
+.calendar_input {
+  position: relative;
+  width: 100%;
+  height: 64px;
+}
+
+.calendar_input:focus + .calendar_svg {
+  fill: var(--color-primary);
+}
+
+.datepicker_toggle_button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.datepicker {
+  padding: 18px;
+  border: transparent;
+  border-radius: 10px;
+  background: var(--color-dark-bg);
+  outline: transparent;
+  color: var(--color-secondary);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.datepicker::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}

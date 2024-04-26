@@ -1,8 +1,7 @@
 import { useState } from 'react';
-// order form
-
 import Reviews from '../Reviews/Reviews';
 import Features from '../Features/Features';
+import OrderForm from './OrderForm/OrderForm';
 import sprite from 'icons/sprite.svg';
 import css from './ModalAdvert.module.css';
 import cssItem from '../../AdvertsList/AdvertItem/AdvertItem.module.css';
@@ -59,6 +58,7 @@ const ModalAdvert = ({ advert }) => {
             >
               Features
             </button>
+
             <button
               className={`${css.nav_link} ${
                 btnActive === 'rewiews' && css.accent
@@ -73,7 +73,7 @@ const ModalAdvert = ({ advert }) => {
               {btnActive === 'features' && <Features advert={advert} />}
               {btnActive === 'rewiews' && <Reviews reviews={advert.reviews} />}
             </div>
-            {/* <BookingForm /> */}
+            <OrderForm />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   gap: 64px;
+  padding-inline: 40px;
   margin-inline: auto;
   max-width: var(--desktop);
 }

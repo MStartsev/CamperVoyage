@@ -1,6 +1,7 @@
 .primary_btn {
   padding: 16px 40px;
   width: fit-content;
+  min-width: 160px;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
