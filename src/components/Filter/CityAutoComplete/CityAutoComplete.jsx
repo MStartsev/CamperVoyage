@@ -74,7 +74,7 @@ const CityAutoComplete = ({ cities, onCitySelect }) => {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onBlur={handleBlur}
-          placeholder="Enter the name of the Ukrainian city"
+          placeholder="City"
         />
         {suggestions.length > 0 && (
           <ul className={css.list}>

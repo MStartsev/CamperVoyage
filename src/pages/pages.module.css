@@ -43,6 +43,10 @@
   padding-block: 100px;
 }
 
+.filter {
+  max-width: 360px;
+}
+
 .homepage_text {
   display: block;
   max-width: 460px;

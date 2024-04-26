@@ -1,0 +1,35 @@
+.primary_btn {
+  padding: 16px 40px;
+  width: fit-content;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  border-radius: 200px;
+  transition: border-color cubic-bezier() 200ms;
+}
+
+.accent_btn {
+  composes: primary_btn;
+
+  color: var(--color-white);
+  background-color: var(--color-accent);
+}
+
+.ligth_btn {
+  composes: primary_btn;
+
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid rgba(71, 84, 103, 0.2);
+}
+
+.ligth_btn:hover,
+.ligth_btn:focus {
+  border-color: var(--color-accent-hover);
+}
+
+.accent_btn:hover,
+.accent_btn:focus {
+  background-color: var(--color-accent-hover);
+}

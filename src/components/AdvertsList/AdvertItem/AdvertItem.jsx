@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from '../../Modal/Modal';
 import DetailsList from './DetailsList';
+import { AccentButton } from 'components/Button/Button';
 import sprite from 'icons/sprite.svg';
 import css from './AdvertItem.module.css';
 
@@ -64,9 +65,7 @@ const AdvertItem = ({ advert }) => {
 
         <DetailsList details={details} />
 
-        <button className={css.button_more} onClick={handleShowModal}>
-          Show more
-        </button>
+        <AccentButton onClick={handleShowModal}>Show more</AccentButton>
 
         {showModal && <Modal onClose={handleCloseModal} advert={advert} />}
       </div>

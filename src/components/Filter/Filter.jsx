@@ -3,14 +3,7 @@ import { FilterData } from './FilterData';
 import CityAutoComplete from './CityAutoComplete/CityAutoComplete';
 import DetailFilter from './DetailFilter/DetailFilter';
 import FormFilter from './FormFilter/FormFilter';
-
-const SearchButton = ({ onClick, disabled }) => {
-  return (
-    <button onClick={onClick} disabled={disabled}>
-      Search
-    </button>
-  );
-};
+import { LigthButton } from 'components/Button/Button';
 
 const Filter = ({ adverts, setFilteredAdverts }) => {
   const filterKeys = useMemo(() => FilterData(adverts), [adverts]);
@@ -58,7 +51,7 @@ const Filter = ({ adverts, setFilteredAdverts }) => {
       />
       <FormFilter formKeys={filterKeys.form} onFilterSelect={setFilteredForm} />
 
-      <SearchButton onClick={handleSearch} />
+      <LigthButton onClick={handleSearch}> Search </LigthButton>
     </div>
   );
 };
