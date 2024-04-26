@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from 'redux/selectors';
+import { addFavorite, removeFavorite } from 'redux/favoriteSlice';
 import Modal from '../../Modal/Modal';
 import DetailsList from './DetailsList';
 import { AccentButton } from 'components/Button/Button';
@@ -28,6 +31,16 @@ const AdvertItem = ({ advert }) => {
     gallery,
   } = advert;
 
+  const dispatch = useDispatch();
+
+  const { favorites } = useSelector(selectFavorites);
+  const isFavorite = !favorites.find(favorite => favorite.id === id);
+
+  const handleFavorite = () =>
+    isFavorite
+      ? dispatch(addFavorite(advert))
+      : dispatch(removeFavorite(advert.id));
+
   return (
     <li className={css.item} id={id}>
       <img
@@ -45,6 +58,14 @@ const AdvertItem = ({ advert }) => {
             <h2 className={css.title}>{name}</h2>
             <div className={css.price_wrapper}>
               <p className={css.price}>€{price.toFixed(2)}</p>
+              <button
+                className={(isFavorite && css.favorite) || css.favorite__added}
+                onClick={handleFavorite}
+              >
+                <svg className={css.icon} width={24} height={24}>
+                  <use xlinkHref={`${sprite}#heart`} />
+                </svg>
+              </button>
             </div>
           </div>
           <div className={css.info}>
