@@ -3,7 +3,7 @@ import { FilterData } from './FilterData';
 import CityAutoComplete from './CityAutoComplete/CityAutoComplete';
 import DetailFilter from './DetailFilter/DetailFilter';
 import FormFilter from './FormFilter/FormFilter';
-import { LigthButton } from 'components/Button/Button';
+import { AccentButton } from 'components/Button/Button';
 
 const Filter = ({ adverts, setFilteredAdverts }) => {
   const filterKeys = useMemo(() => FilterData(adverts), [adverts]);
@@ -51,7 +51,7 @@ const Filter = ({ adverts, setFilteredAdverts }) => {
       />
       <FormFilter formKeys={filterKeys.form} onFilterSelect={setFilteredForm} />
 
-      <LigthButton onClick={handleSearch}> Search </LigthButton>
+      <AccentButton onClick={handleSearch}> Search </AccentButton>
     </div>
   );
 };
