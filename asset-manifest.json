@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/CamperVoyage/static/css/main.a1794001.css",
-    "main.js": "/CamperVoyage/static/js/main.99e3f3f1.js",
+    "main.js": "/CamperVoyage/static/js/main.7bb6dd8a.js",
     "static/css/415.b2cfedb3.chunk.css": "/CamperVoyage/static/css/415.b2cfedb3.chunk.css",
     "static/js/415.93ec0f53.chunk.js": "/CamperVoyage/static/js/415.93ec0f53.chunk.js",
     "static/css/489.80c9b498.chunk.css": "/CamperVoyage/static/css/489.80c9b498.chunk.css",
-    "static/js/489.f67428fa.chunk.js": "/CamperVoyage/static/js/489.f67428fa.chunk.js",
+    "static/js/489.95018f75.chunk.js": "/CamperVoyage/static/js/489.95018f75.chunk.js",
     "static/css/395.f8f6c5ce.chunk.css": "/CamperVoyage/static/css/395.f8f6c5ce.chunk.css",
     "static/js/395.8b3c676d.chunk.js": "/CamperVoyage/static/js/395.8b3c676d.chunk.js",
     "static/media/home-bg-1.jpg": "/CamperVoyage/static/media/home-bg-1.bc3f97704007c0efe837.jpg",
     "static/media/sprite.svg": "/CamperVoyage/static/media/sprite.e972a997dd77fafd06f0aee1b179526c.svg",
     "index.html": "/CamperVoyage/index.html",
     "main.a1794001.css.map": "/CamperVoyage/static/css/main.a1794001.css.map",
-    "main.99e3f3f1.js.map": "/CamperVoyage/static/js/main.99e3f3f1.js.map",
+    "main.7bb6dd8a.js.map": "/CamperVoyage/static/js/main.7bb6dd8a.js.map",
     "415.b2cfedb3.chunk.css.map": "/CamperVoyage/static/css/415.b2cfedb3.chunk.css.map",
     "415.93ec0f53.chunk.js.map": "/CamperVoyage/static/js/415.93ec0f53.chunk.js.map",
     "489.80c9b498.chunk.css.map": "/CamperVoyage/static/css/489.80c9b498.chunk.css.map",
-    "489.f67428fa.chunk.js.map": "/CamperVoyage/static/js/489.f67428fa.chunk.js.map",
+    "489.95018f75.chunk.js.map": "/CamperVoyage/static/js/489.95018f75.chunk.js.map",
     "395.f8f6c5ce.chunk.css.map": "/CamperVoyage/static/css/395.f8f6c5ce.chunk.css.map",
     "395.8b3c676d.chunk.js.map": "/CamperVoyage/static/js/395.8b3c676d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a1794001.css",
-    "static/js/main.99e3f3f1.js"
+    "static/js/main.7bb6dd8a.js"
   ]
 }
